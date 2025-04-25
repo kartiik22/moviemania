@@ -51,7 +51,7 @@ export default class Movies extends Component {
   };
 
   handleLeft = () => {
-    if (this.state.currPage != 1) {
+    if (this.state.currPage !== 1) {
       this.setState(
         {
           currPage: this.state.currPage - 1,
@@ -62,7 +62,7 @@ export default class Movies extends Component {
   };
 
   handleClick = (value) => {
-    if (value != this.state.currPage) {
+    if (value !== this.state.currPage) {
       this.setState(
         {
           currPage: value,
@@ -76,7 +76,7 @@ export default class Movies extends Component {
     let oldData = JSON.parse(localStorage.getItem("movies-app") || "[]");
     if (this.state.favourites.includes(movie.id)) {
       oldData = oldData.filter((m) => {
-        return m.id != movie.id;
+        return m.id !== movie.id;
       });
     } else {
       oldData.push(movie);
@@ -98,7 +98,7 @@ export default class Movies extends Component {
     return (
       <>
         <Banner />;
-        {this.state.movies.length == 0 ? (
+        {this.state.movies.length === 0 ? (
           <div className="spinner-border text-primary" role="status">
             <span className="visually-hidden">Loading...</span>
           </div>
@@ -132,7 +132,7 @@ export default class Movies extends Component {
                       justifyContent: "center",
                     }}
                   >
-                    {this.state.hover == movieObj.id && (
+                    {this.state.hover === movieObj.id && (
                       <a
                         className="btn btn-primary movies-button"
                         onClick={() => this.handleFavourites(movieObj)}
